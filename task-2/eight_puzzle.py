@@ -52,7 +52,7 @@ def h3(s):
     # implement this function
     board, _, _ = s
     res = 0
-    for i in range(0, 8): # q1 r1 is for pointer
+    for i in range(0, 9): # q1 r1 is for pointer
         q1 = i // 3
         r1 = i % 3
         if (board[i] == 0): # q2 r2 is for preferred positon
@@ -61,5 +61,8 @@ def h3(s):
         else:
             q2 = (board[i]-1) // 3
             r2 = (board[i]-1) % 3
-        res += (abs(q1-q2)+abs(r1-r2)) # manhattan
+        if (abs(q1-q2) != 0):
+            res += 1
+        if (abs(r1-r2) != 0):
+            res += 1
     return res
